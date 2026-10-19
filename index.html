@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TapeDeck · 极速、安全的使用 DeWEB 应用</title>
-  <meta name="description" content="极速、安全的使用 DeWEB 应用和参与链上活动。TapeDeck 直接从链上读取并校验 DeWEB 应用，支持 BNB Chain、X Layer 和 Base，桥接浏览器钱包扩展，不导入私钥。">
+  <title>TapeDeck · 安全地使用链上应用</title>
+  <meta name="description" content="安全地使用链上应用，拥有自己的链上身份，你发布的一切入口永存在链上。TapeDeck 替你体检网站和签名风险，和 X 双向认证身份；网站、证书和承诺写上链后谁都能核对。">
   <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
   <!-- Google Analytics -->
@@ -30,6 +30,8 @@
       <a class="brand" href="#"><img src="icon.png" alt="">TapeDeck</a>
       <nav aria-label="页面导航">
         <ul>
+          <li><a href="#idea">理念</a></li>
+          <li><a href="#features">功能</a></li>
           <li><a href="#download">下载</a></li>
         </ul>
       </nav>
@@ -41,37 +43,67 @@
       <div class="wrap">
         <img src="icon.png" alt="TapeDeck 图标">
         <h1>TapeDeck</h1>
-        <p>极速、安全的使用 DeWEB 应用和参与链上活动。</p>
+        <p>安全地使用链上应用，拥有自己的链上身份。你发布的网站、证书和承诺，入口永存在链上，谁都能核对。</p>
         <div class="cta">
           <a class="btn primary" href="#download">下载 0.1.0</a>
+          <a class="btn" href="#idea">产品理念</a>
         </div>
         <p class="version">macOS · Windows · Linux</p>
       </div>
     </div>
 
-    <section id="features" aria-label="DeWEB 特性">
+    <section id="idea" aria-labelledby="idea-title">
       <div class="wrap">
+        <h2 id="idea-title">产品理念</h2>
+        <p class="lead">在链上做事，最怕两件事：签错一个东西，资产就没了；对面是谁，说不清楚。TapeDeck 先替你把好安全关，再给你一个别人认得出的链上身份。你发布的网站、证书和承诺，入口也永久留在区块链上。</p>
         <div class="grid">
-          <div class="card"><h3>tape:// 直接读链</h3><p>网站文件存在 TapeKit 电路的链上容器里，TapeDeck 直接从公共节点读取，不依赖任何网关服务器。</p></div>
-          <div class="card"><h3>三条链</h3><p>BNB Chain、X Layer（区号 2）、Base（区号 3）上的网站都能打开、搜索和体检，各自的节点池，地址栏显示网站所在的链。</p></div>
-          <div class="card"><h3>按电路名访问</h3><p>输入 <code>4454.0</code>、<code>#4454@0</code>、<code>1.2.248</code>（X Layer）或 <code>8888.tape</code> 都能打开同一个网站；输入数字串自动尝试所有切分，输入钱包地址打开它持有的所有网站。</p></div>
-          <div class="card"><h3>哈希和多节点校验</h3><p>每个文件都核对链上记录的 SHA-256，再找两个不同的节点核对一遍，单个节点作恶伪造不了，不一致时按钮变红。</p></div>
-          <div class="card"><h3>安全盾牌</h3><p>打开网站后自动体检整个网站，地址栏的盾牌直接显示结果：绿色没发现问题，黄色要留意，红色发现高危特征，灰色不是链上网站。</p></div>
-          <div class="card"><h3>安全体检和合约风险</h3><p>在本机分析网站会请你签什么、有没有骗助记词和盗币工具包，还会检查网站用到的合约：能不能升级、能不能暂停或提走资金，一键打开区块浏览器看源码。</p></div>
-          <div class="card"><h3>钱包网站体检</h3><p>输入一个钱包地址，扫描它在三条链上持有的全部网站，逐个体检，按风险排好序，一眼看出哪个有问题。</p></div>
-          <div class="card"><h3>签名风险解读</h3><p>无限额授权、授权全部 NFT、离线签名授权、盲签等高危请求翻成一句话，默认按钮是「拒绝」；网站改过代码、换了持有人都会提醒。</p></div>
-          <div class="card"><h3>钱包不导入私钥</h3><p>桥接系统浏览器里的钱包扩展（MetaMask 等），不依赖 WalletConnect 这类中心化中继，每次签名都先显示真实来源。</p></div>
-          <div class="card"><h3>链上身份</h3><p>在 X Layer 上铸造一枚电路就是你的身份，比如 <code>xlayer23331</code>。个人中心管理身份、容器和门。</p></div>
-          <div class="card"><h3>加密消息</h3><p>身份之间端到端加密通讯，和 TapeSend 互通。有新消息时提醒，消息里的 DeWEB 链接点了直接打开。</p></div>
-          <div class="card"><h3>发送密级文件</h3><p>文件在本机加密后存进你的容器，钥匙用加密消息交给对方，只有对方能解开，最多 8 MB。</p></div>
-          <div class="card"><h3>双向 X 身份认证</h3><p>用 X 发一条认证推文，再用钱包签名存进身份的容器，别人就能确认这个身份真是你的，防止冒充。</p></div>
-          <div class="card"><h3>DeWEB 应用目录</h3><p>以卡片列出三条链上所有有首页的网站，显示站长的 logo 或封面，按分类筛选、按标题、编号、持有人搜索。</p></div>
-          <div class="card"><h3>Fork 二次开发</h3><p>看到喜欢的网站，一键把全部文件下载到本地文件夹，在它的基础上继续开发。</p></div>
-          <div class="card"><h3>本地预览和发布</h3><p>打开本机文件夹按 tape:// 的规则预览，上链前列出问题和要发的交易笔数；满意后一键发到自己电路的容器。</p></div>
-          <div class="card"><h3>分享链接</h3><p>网站信息面板一键复制 https 分享链接，能发到 X、Telegram、微信。装了 TapeDeck 的人点开直接打开网站，没装的看到下载页。</p></div>
-          <div class="card"><h3>锁定和离线兜底</h3><p>设一个解锁密码，离开电脑时锁住 TapeDeck；文件按 SHA-256 缓存在本机，读链失败时显示上次缓存的版本。</p></div>
+          <div class="card"><h3>安全放在第一位</h3><p>打开网站前先校验内容、做安全体检，签名前把要你签的东西翻成一句话。钱包留在你自己的浏览器扩展里，TapeDeck 不碰私钥。</p></div>
+          <div class="card"><h3>身份属于你自己</h3><p>链上身份由你持有，不归任何平台管。和 X 账号双向绑定后，别人能确认这个身份真是你，冒充不了。</p></div>
+          <div class="card"><h3>入口永久在链上</h3><p>网站、证书、承诺的入口都是一个链上编号，没有服务器要续费，没有域名会过期。内容写上去谁也改不了，任何人都能自己核对。</p></div>
+          <div class="card"><h3>不懂技术也能用</h3><p>体检、认证、发布、存证都是填几项、点几下。链上的细节交给 TapeDeck，你只管要做的事。</p></div>
         </div>
-        <p class="note">TapeDeck 能证明你看到的内容来自链上、没有被篡改，但判断不了网站作者本身有没有恶意。签名和交易前请自己核对。</p>
+      </div>
+    </section>
+
+    <section id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <h2 id="features-title">能做什么</h2>
+
+        <h3 class="group">去中心化网站</h3>
+        <div class="grid">
+          <div class="card"><h3>打开链上网站</h3><p>输入编号或钱包地址就能打开存在链上的网站，打开前先校验内容，看到的就是发布者放上去的。</p></div>
+          <div class="card"><h3>发现和关注</h3><p>按分类浏览链上所有网站，把喜欢的加入关注，下次一点就开。</p></div>
+        </div>
+
+        <h3 class="group">创建网站应用</h3>
+        <div class="grid">
+          <div class="card"><h3>上传发布应用</h3><p>选一个本机文件夹，先预览、再一键发到链上，发布前列出要花多少。</p></div>
+          <div class="card"><h3>链上推广活动</h3><p>给你的应用办空投、抽奖或评选，领取条件写在链上，挡住批量刷号。</p></div>
+          <div class="card"><h3>激活网关域名</h3><p>激活一次，没装 TapeDeck 的人也能用普通浏览器打开你的网站。</p></div>
+          <div class="card"><h3>发布付费应用</h3><p>给应用设一个价格，付了款的人才能使用。</p></div>
+        </div>
+
+        <h3 class="group">信息永久存证</h3>
+        <div class="grid">
+          <div class="card"><h3>事前哈希承诺</h3><p>先把答案的指纹存上链，事后公开原文，谁都能核对你当时押的是什么。</p></div>
+          <div class="card"><h3>组织机构凭证</h3><p>机构在链上给个人发证书，别人一查就知道是不是真的，不怕伪造，也不怕发证网站关门。</p></div>
+          <div class="card"><h3>活动电子门票</h3><p>活动方在链上发门票，可以转让，谁持有一查就知道。</p></div>
+        </div>
+
+        <h3 class="group">安全链上应用</h3>
+        <div class="grid">
+          <div class="card"><h3>钱包网站体检</h3><p>输入一个钱包地址，检查它持有的所有网站，按风险排好序，哪个有问题一眼看出来。</p></div>
+          <div class="card"><h3>双向身份认证</h3><p>把链上身份和 X 账号互相绑定，别人就能确认这个身份真是你的，防止冒充。</p></div>
+          <div class="card"><h3>发送密级文件</h3><p>文件在本机加密后存上链，只有你指定的人能解开。</p></div>
+          <div class="card"><h3>查保管箱资产</h3><p>输入一个身份，看它的保管箱里有什么，不用连接钱包。</p></div>
+          <div class="card"><h3>付费密件交付</h3><p>买家付款后，密件的钥匙自动交到买家手里。</p></div>
+        </div>
+
+        <h3 class="group">身份和消息</h3>
+        <div class="grid">
+          <div class="card"><h3>链上身份</h3><p>在链上拥有一个属于你的身份，个人中心统一管理。</p></div>
+          <div class="card"><h3>加密消息</h3><p>身份之间端到端加密通讯，消息里的链上链接点开直接打开。</p></div>
+        </div>
       </div>
     </section>
 

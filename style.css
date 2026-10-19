@@ -81,3 +81,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .hero h1 { font-size: 30px; }
   .downloads td:last-child { white-space: normal; }
 }
+
+/* 功能按左侧菜单分组 */
+h3.group { font-size: 15px; font-weight: 600; color: var(--muted); margin: 32px 0 12px; }
+h3.group:first-of-type { margin-top: 8px; }
