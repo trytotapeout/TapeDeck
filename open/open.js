@@ -1,4 +1,6 @@
 // 分享链接落地页：…/open/?4454.0 → 尝试用 tape:// 唤起 TapeDeck，没装的话显示下载按钮。
+// 也能打开 TapeDeck 自己的页面：…/open/?tapedeck/campaigns → tape://tapedeck/campaigns（链上推广活动），
+// 页面名只认 PAGES 里的几个（和 TapeDeck 的 APP_PAGES 一致）。
 // 只解析链接里的电路地址，不读链，不发任何请求。
 'use strict';
 (function () {
@@ -28,6 +30,11 @@
     other: 'TapeDeck 是 macOS、Windows、Linux 上的桌面应用，请在电脑上打开这个链接。',
     title: '在 TapeDeck 中打开 {label}',
   };
+  // TapeDeck 自己的页面：名字、显示的标题
+  const PAGES = {
+    campaigns: { zh: '链上推广活动', en: 'On-chain campaigns', eyebrowZh: 'TapeDeck 页面', eyebrowEn: 'TapeDeck page' },
+    seal: { zh: '封存一段话', en: 'Seal a statement', eyebrowZh: 'TapeDeck 页面', eyebrowEn: 'TapeDeck page' },
+  };
   const en = !/^zh/i.test(navigator.language || '');
   const t = (k) => (en ? EN[k] : ZH[k]);
   const $ = (id) => document.getElementById(id);
@@ -44,6 +51,11 @@
   function parse(search) {
     let q;
     try { q = decodeURIComponent(search.replace(/^\?/, '').replace(/^site=/, '')).trim(); } catch { return null; }
+    const pm = /^tapedeck\/([a-z]+)\/?$/i.exec(q);
+    if (pm) {
+      const p = PAGES[pm[1].toLowerCase()];
+      return p ? { page: true, label: en ? p.en : p.zh, eyebrow: en ? p.eyebrowEn : p.eyebrowZh, tape: `tape://tapedeck/${pm[1].toLowerCase()}` } : null;
+    }
     q = q.replace(/^tape:\/\//i, '').replace(/^#/, '');
     const m = /^([1-9]\d*)[-.@](?:(\d+)[-.])?(0|[1-9]\d*)(?:\.tape)?(\/[\w\-./~%]*)?$/i.exec(q);
     if (!m) return null;
@@ -62,8 +74,17 @@
 
   $('site').hidden = false;
   $('label').textContent = site.label;
-  $('chain').textContent = site.chain.name;
-  $('chain').classList.add(site.chain.cls);
+  if (site.page) {
+    // TapeDeck 自己的页面：没有链，地址那一行写 tape://tapedeck/…
+    $('chain').parentElement.hidden = true;
+    document.querySelector('[data-i18n="eyebrow"]').textContent = site.eyebrow;
+    document.querySelector('[data-i18n="need"]').textContent = en
+      ? 'This page is part of TapeDeck. Wallet actions only happen inside TapeDeck, so a copycat web page can never get your signature.'
+      : '这个页面在 TapeDeck 里。钱包操作只在 TapeDeck 里进行，仿冒的网页拿不到你的签名。';
+  } else {
+    $('chain').textContent = site.chain.name;
+    $('chain').classList.add(site.chain.cls);
+  }
   $('tape').textContent = site.tape;
   document.title = t('title').replace('{label}', site.label);
 
