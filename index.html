@@ -1,19 +1,18 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TapeDeck · 安全地浏览和发布去中心化网站</title>
-  <meta name="description" content="TapeDeck 是 DeWEB 的安全浏览器：网站文件直接从链上读取并校验，打开就做安全体检，签名和交易之前把风险讲清楚。也能把本机的网站一键发布上链。">
+  <title>TapeDeck · Browse and publish decentralized sites safely</title>
+  <meta name="description" content="TapeDeck is a safe browser for DeWEB: site files are read and verified straight from the chain, every site gets a safety check when it opens, and risks are spelled out before you sign. You can also publish a site from your computer to the chain in one click.">
   <link rel="icon" href="icon.png">
-  <link rel="alternate" hreflang="zh" href="https://gettapedeck.com/">
-  <link rel="alternate" hreflang="en" href="https://gettapedeck.com/en/">
+  <link rel="alternate" hreflang="zh" href="https://gettapedeck.com/zh/">
+  <link rel="alternate" hreflang="en" href="https://gettapedeck.com/">
+  <link rel="alternate" hreflang="x-default" href="https://gettapedeck.com/">
   <script>
-    // 第一次来、浏览器不是中文的，转到英文页；点过语言切换就按点的来（存在 localStorage）
+    // 默认英文；点过「中文」的人下次直接进中文页（存在 localStorage）
     (function () {
-      var pick = null;
-      try { pick = localStorage.getItem('tapedeck-home-lang'); } catch (e) {}
-      if (pick === 'en' || (!pick && !/^zh/i.test(navigator.language || ''))) location.replace('en/' + location.hash);
+      try { if (localStorage.getItem('tapedeck-home-lang') === 'zh') location.replace('zh/' + location.hash); } catch (e) {}
     })();
   </script>
   <link rel="stylesheet" href="style.css">
@@ -26,7 +25,7 @@
     gtag('config', 'G-LMQJ627ED4');
   </script>
   <script>
-    // 统计安装包下载：点击 Releases 里的安装包链接时发 download 事件，带上文件名
+    // Count installer downloads: send a download event with the file name when a release asset link is clicked
     document.addEventListener('click', function (e) {
       var a = e.target.closest('a[href*="/releases/download/"]');
       if (a) gtag('event', 'download', { file_name: a.href.split('/').pop() });
@@ -34,30 +33,30 @@
   </script>
 </head>
 <body>
-  <a class="skip" href="#main">跳到正文</a>
+  <a class="skip" href="#main">Skip to content</a>
   <header class="site">
     <div class="wrap">
       <a class="brand" href="#"><img src="icon.png" alt="">TapeDeck</a>
-      <nav aria-label="页面导航">
+      <nav aria-label="Page">
         <ul>
-          <li><a href="#idea">理念</a></li>
-          <li><a href="#features">功能</a></li>
-          <li><a href="#download">下载</a></li>
+          <li><a href="#idea">Idea</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#download">Download</a></li>
         </ul>
       </nav>
-      <a class="lang" href="en/" hreflang="en" lang="en" onclick="try{localStorage.setItem('tapedeck-home-lang','en')}catch(e){}">English</a>
+      <a class="lang" href="zh/" hreflang="zh" lang="zh-CN" onclick="try{localStorage.setItem('tapedeck-home-lang','zh')}catch(e){}">中文</a>
     </div>
   </header>
 
   <main id="main">
     <div class="hero">
       <div class="wrap">
-        <img src="icon.png" alt="TapeDeck 图标">
+        <img src="icon.png" alt="TapeDeck icon">
         <h1>TapeDeck</h1>
-        <p>安全地浏览和发布去中心化网站。网站文件直接从链上读取并校验，打开就做安全体检，签名和交易之前先把风险讲清楚。</p>
+        <p>Browse and publish decentralized sites safely. Site files are read and verified straight from the chain, every site gets a safety check when it opens, and the risks are spelled out before you sign or send anything.</p>
         <div class="cta">
-          <a class="btn primary" href="#download">下载 0.1.0</a>
-          <a class="btn" href="#idea">产品理念</a>
+          <a class="btn primary" href="#download">Download 0.1.0</a>
+          <a class="btn" href="#idea">The idea</a>
         </div>
         <p class="version">macOS · Windows · Linux</p>
       </div>
@@ -65,74 +64,74 @@
 
     <section id="idea" aria-labelledby="idea-title">
       <div class="wrap">
-        <h2 id="idea-title">产品理念</h2>
-        <p class="lead">在链上做事，最怕签错一个东西，资产就没了。TapeDeck 只做两件事：让你安全地打开链上的网站，让你把自己的网站放上链。具体的链上应用都是网站，在 TapeDeck 里打开，每一次签名和交易都先经过它的检查。链上的 DeWEB 网站本质上是装在容器（保管箱）里的应用，所以我们也可以借助容器通讯。</p>
+        <h2 id="idea-title">The idea</h2>
+        <p class="lead">The scariest thing about doing anything on chain is signing the wrong thing and losing your assets. TapeDeck does two jobs: it opens on-chain sites safely, and it puts your own site on chain. On-chain apps are just sites, so when you open one in TapeDeck, every signature and transaction is checked first. A DeWEB site is really an app living in a container (a safe box), so we can also communicate through those containers.</p>
         <div class="grid">
-          <div class="card"><h3>安全放在第一位</h3><p>打开网站前先校验内容、做安全体检，签名前把要你签的东西翻成一句话。钱包留在你自己的浏览器扩展里，TapeDeck 不碰私钥。</p></div>
-          <div class="card"><h3>网站就在链上</h3><p>网站文件存在区块链上，不经过任何网关服务器，没有服务器要续费，也没有域名会过期。你看到的就是发布者放上去的。</p></div>
-          <div class="card"><h3>发布只要点几下</h3><p>选一个本机文件夹，先预览，再一键发上链，发布前列出要花多少。还没有网站的话，可以在 TapeCode Plus 里用 AI 生成一个。</p></div>
-          <div class="card"><h3>不懂技术也能用</h3><p>体检、发布、认证都是填几项、点几下。链上的细节交给 TapeDeck，你只管要做的事。</p></div>
+          <div class="card"><h3>Safety comes first</h3><p>Content is verified and checked before a site opens, and anything you are asked to sign is put into one plain sentence. Your wallet stays in your own browser extension; TapeDeck never touches your private keys.</p></div>
+          <div class="card"><h3>Sites live on chain</h3><p>Site files are stored on the blockchain and never pass through a gateway server. There is no server to renew and no domain to expire. What you see is exactly what the publisher put there.</p></div>
+          <div class="card"><h3>Publishing takes a few clicks</h3><p>Pick a folder on your computer, preview it, then publish it on chain in one click, with the cost listed up front. No site yet? Generate one with AI in TapeCode Plus.</p></div>
+          <div class="card"><h3>No tech skills needed</h3><p>Checks, publishing and verification are a few fields and a few clicks. TapeDeck handles the on-chain details so you can focus on what you want to do.</p></div>
         </div>
       </div>
     </section>
 
     <section id="features" aria-labelledby="features-title">
       <div class="wrap">
-        <h2 id="features-title">能做什么</h2>
+        <h2 id="features-title">What it does</h2>
 
-        <h3 class="group">去中心化网站</h3>
+        <h3 class="group">Decentralized sites</h3>
         <div class="grid">
-          <div class="card"><h3>打开就做安全体检</h3><p>每个网站打开时自动体检：会请你签什么、有没有骗助记词和盗币代码、用到的合约能不能提走资金。地址栏的盾牌直接显示结果，绿色放心，黄色留意，红色高危。</p></div>
-          <div class="card"><h3>签名前讲清风险</h3><p>交易先在链上预演，算出你的资产实际会流出多少。无限额授权、授权全部 NFT、盲签、地址投毒这类高危请求翻成一句话告诉你，默认按钮是「拒绝」。</p></div>
-          <div class="card"><h3>网站权限</h3><p>给每个身份定规矩：允不允许钱包签名、最多能转移等值多少的代币、能不能转移 NFT。规则存在身份的保管箱里，浏览任何网站时，超出规则的请求直接拦下。</p></div>
-          <div class="card"><h3>安全浏览</h3><p>开启后记录这段时间去过哪些网站、钱包做过什么。结束时由你决定要不要存上链。万一将来出了问题，哪天去没去过、有没有做过这笔交易，链上记录替你自证。</p></div>
-          <div class="card"><h3>打开链上网站</h3><p>输入编号或钱包地址就能打开存在链上的网站，BNB Chain、X Layer、Base 三条链都支持。打开前先校验内容，看到的就是发布者放上去的。</p></div>
-          <div class="card"><h3>关注和最近访问</h3><p>把喜欢的网站加入关注，加入前先体检一遍；最近去过的网站也记着，下次一点就开。</p></div>
+          <div class="card"><h3>A safety check on every open</h3><p>Every site is checked as it opens: what it will ask you to sign, whether it tries to phish your seed phrase or carries coin-stealing code, and whether the contracts it uses can drain funds. The shield in the address bar shows the result: green is fine, yellow needs a look, red is high risk.</p></div>
+          <div class="card"><h3>Risks explained before you sign</h3><p>Transactions are simulated on chain first, so you see how much will actually leave your wallet. Unlimited approvals, approve-all-NFTs, blind signing and address poisoning are explained in one sentence, and the default button is "Reject".</p></div>
+          <div class="card"><h3>Site permissions</h3><p>Set rules for each identity: whether wallet signatures are allowed, how much token value can be moved, and whether NFTs can be moved. The rules live in the identity's safe box, and any site request beyond them is blocked.</p></div>
+          <div class="card"><h3>Safe browsing</h3><p>Turn it on to record which sites you visited and what your wallet did. When you are done, you decide whether to save the record on chain. If anything ever goes wrong, the record proves whether you visited a site or made a transaction on a given day.</p></div>
+          <div class="card"><h3>Open on-chain sites</h3><p>Enter a site number or a wallet address to open sites stored on BNB Chain, X Layer or Base. Content is verified before it opens, so what you see is what the publisher put there.</p></div>
+          <div class="card"><h3>Following and recent</h3><p>Follow the sites you like, with a safety check before they are added. Recently visited sites are remembered too, one click away.</p></div>
         </div>
 
-        <h3 class="group">创建网站应用</h3>
+        <h3 class="group">Build and publish</h3>
         <div class="grid">
-          <div class="card"><h3>上传发布应用</h3><p>选一个本机文件夹，先预览、再一键发到链上，发布前列出要花多少。</p></div>
-          <div class="card"><h3>发布付费应用</h3><p>给应用设一个价格，付了款的人才能使用。</p></div>
-          <div class="card"><h3>激活网关域名</h3><p>激活一次，没装 TapeDeck 的人也能用普通浏览器打开你的网站。</p></div>
-          <div class="card"><h3>钱包网站体检</h3><p>输入一个钱包地址或网站，检查它持有的所有网站，按风险排好序，哪个有问题一眼看出来。</p></div>
-          <div class="card"><h3>TapeCode Plus</h3><p>在 TapeDeck 里打开 tapecode.ai，用 AI 生成网站，生成好的网站可以直接在新标签页打开。</p></div>
+          <div class="card"><h3>Upload and publish</h3><p>Pick a folder on your computer, preview it, then publish it on chain in one click, with the cost listed up front.</p></div>
+          <div class="card"><h3>Paid apps</h3><p>Set a price on your app so only people who paid can use it.</p></div>
+          <div class="card"><h3>Gateway domain</h3><p>Activate it once and anyone can open your site in a regular browser, even without TapeDeck.</p></div>
+          <div class="card"><h3>Wallet site check</h3><p>Enter a wallet address or a site to check every site it holds, sorted by risk, so problems stand out at a glance.</p></div>
+          <div class="card"><h3>TapeCode Plus</h3><p>Open tapecode.ai inside TapeDeck to generate a site with AI, then open the result in a new tab.</p></div>
         </div>
 
-        <h3 class="group">安全链上应用</h3>
+        <h3 class="group">Secure on-chain apps</h3>
         <div class="grid">
-          <div class="card"><h3>双向身份认证</h3><p>把链上身份和 X 账号互相绑定，别人就能确认这个身份真是你的，防止冒充。</p></div>
-          <div class="card"><h3>发送密级文件</h3><p>文件在本机加密后存上链，只有你指定的人能解开。</p></div>
-          <div class="card"><h3>查保管箱资产</h3><p>输入一个身份，看它的保管箱里有什么，不用连接钱包。</p></div>
-          <div class="card"><h3>付费密件交付</h3><p>买家付款后，密件的钥匙自动交到买家手里。</p></div>
+          <div class="card"><h3>Two-way identity verification</h3><p>Link your on-chain identity and your X account to each other, so others can confirm the identity really is yours.</p></div>
+          <div class="card"><h3>Send sealed files</h3><p>Files are encrypted on your computer and stored on chain; only the people you choose can open them.</p></div>
+          <div class="card"><h3>Safe box lookup</h3><p>Enter an identity to see what is in its safe box, no wallet needed.</p></div>
+          <div class="card"><h3>Paid sealed delivery</h3><p>Once the buyer pays, the key to the sealed file is handed to them automatically.</p></div>
         </div>
 
-        <h3 class="group">身份和消息</h3>
+        <h3 class="group">Identity and messages</h3>
         <div class="grid">
-          <div class="card"><h3>链上身份</h3><p>在链上拥有一个属于你的身份，个人中心里买积木、开通保管箱、管理网站权限。</p></div>
-          <div class="card"><h3>加密消息</h3><p>身份之间端到端加密通讯，消息里的链上链接点开直接打开。</p></div>
+          <div class="card"><h3>On-chain identity</h3><p>Own an identity on chain. In your profile you can buy blocks, open safe boxes and manage site permissions.</p></div>
+          <div class="card"><h3>Encrypted messages</h3><p>End-to-end encrypted messages between identities; on-chain links in a message open right in TapeDeck.</p></div>
         </div>
       </div>
     </section>
 
     <section id="download" aria-labelledby="download-title">
       <div class="wrap">
-        <h2 id="download-title">下载</h2>
-        <p class="lead">最新版本 0.1.0。所有版本见 <a href="https://github.com/trytotapeout/TapeDeck/releases">GitHub Releases</a>。</p>
+        <h2 id="download-title">Download</h2>
+        <p class="lead">Latest version 0.1.0. All versions are on <a href="https://github.com/trytotapeout/TapeDeck/releases">GitHub Releases</a>.</p>
         <table class="downloads">
-          <thead><tr><th scope="col">平台</th><th scope="col">文件</th><th scope="col">下载</th></tr></thead>
+          <thead><tr><th scope="col">Platform</th><th scope="col">File</th><th scope="col">Download</th></tr></thead>
           <tbody>
-            <tr><td>macOS（Apple 芯片）</td><td><code>TapeDeck-0.1.0-mac-arm64.dmg</code></td><td><a href="https://github.com/trytotapeout/TapeDeck/releases/download/v0.1.0/TapeDeck-0.1.0-mac-arm64.dmg">下载</a></td></tr>
-            <tr><td>Windows（x64）</td><td><code>TapeDeck-0.1.0-win-x64-setup.exe</code></td><td><a href="https://github.com/trytotapeout/TapeDeck/releases/download/v0.1.0/TapeDeck-0.1.0-win-x64-setup.exe">下载</a></td></tr>
-            <tr><td>Linux（x86_64）</td><td><code>TapeDeck-0.1.0-linux-x86_64.AppImage</code></td><td><a href="https://github.com/trytotapeout/TapeDeck/releases/download/v0.1.0/TapeDeck-0.1.0-linux-x86_64.AppImage">下载</a></td></tr>
+            <tr><td>macOS (Apple silicon)</td><td><code>TapeDeck-0.1.0-mac-arm64.dmg</code></td><td><a href="https://github.com/trytotapeout/TapeDeck/releases/download/v0.1.0/TapeDeck-0.1.0-mac-arm64.dmg">Download</a></td></tr>
+            <tr><td>Windows (x64)</td><td><code>TapeDeck-0.1.0-win-x64-setup.exe</code></td><td><a href="https://github.com/trytotapeout/TapeDeck/releases/download/v0.1.0/TapeDeck-0.1.0-win-x64-setup.exe">Download</a></td></tr>
+            <tr><td>Linux (x86_64)</td><td><code>TapeDeck-0.1.0-linux-x86_64.AppImage</code></td><td><a href="https://github.com/trytotapeout/TapeDeck/releases/download/v0.1.0/TapeDeck-0.1.0-linux-x86_64.AppImage">Download</a></td></tr>
           </tbody>
         </table>
         <div class="hint">
-          <p>每个文件的 SHA-256 见 <a href="https://github.com/trytotapeout/TapeDeck/releases/download/v0.1.0/SHA256SUMS.txt">SHA256SUMS.txt</a>。第一次打开时：</p>
+          <p>The SHA-256 of every file is in <a href="https://github.com/trytotapeout/TapeDeck/releases/download/v0.1.0/SHA256SUMS.txt">SHA256SUMS.txt</a>. The first time you open it:</p>
           <ul>
-            <li>macOS：安装包已经用 Apple 开发者证书签名并通过公证，拖进「应用程序」后双击就能打开</li>
-            <li>Windows：SmartScreen 提示时点「更多信息 → 仍要运行」</li>
-            <li>Linux：先 <code>chmod +x</code> 再运行 AppImage</li>
+            <li>macOS: the app is signed with an Apple Developer ID and notarized. Drag it into Applications and double-click to open</li>
+            <li>Windows: if SmartScreen warns you, click "More info → Run anyway"</li>
+            <li>Linux: run <code>chmod +x</code> first, then run the AppImage</li>
           </ul>
         </div>
       </div>
@@ -142,8 +141,8 @@
 
   <footer>
     <div class="wrap">
-      <span>TapeDeck · 作者 <a href="https://x.com/boostbob">x.com/boostbob</a></span>
-      <span><a href="https://github.com/trytotapeout/TapeDeck/issues">反馈问题</a> · <a href="https://t.me/+vYYRSzWkbg40NDhl">加入 Telegram</a> · <a href="https://discord.gg/7mAxeTWbH">加入 Discord</a></span>
+      <span>TapeDeck · by <a href="https://x.com/boostbob">x.com/boostbob</a></span>
+      <span><a href="https://github.com/trytotapeout/TapeDeck/issues">Report an issue</a> · <a href="https://t.me/+vYYRSzWkbg40NDhl">Join Telegram</a> · <a href="https://discord.gg/7mAxeTWbH">Join Discord</a></span>
     </div>
   </footer>
 </body>
