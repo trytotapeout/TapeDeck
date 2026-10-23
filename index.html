@@ -10,9 +10,13 @@
   <link rel="alternate" hreflang="en" href="https://gettapedeck.com/">
   <link rel="alternate" hreflang="x-default" href="https://gettapedeck.com/">
   <script>
-    // 默认英文；点过「中文」的人下次直接进中文页（存在 localStorage）
+    // 点过「中文」/「English」的按选的（存在 localStorage）；没点过的看浏览器语言，中文进中文页，其他留在英文页
     (function () {
-      try { if (localStorage.getItem('tapedeck-home-lang') === 'zh') location.replace('zh/' + location.hash); } catch (e) {}
+      var saved = null;
+      try { saved = localStorage.getItem('tapedeck-home-lang'); } catch (e) {}
+      var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+      var zh = saved ? saved === 'zh' : /^zh/i.test(langs[0] || '');
+      if (zh) location.replace('zh/' + location.search + location.hash);
     })();
   </script>
   <link rel="stylesheet" href="style.css">
