@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TapeDeck · Browse and publish decentralized sites safely</title>
+  <meta name="description" content="TapeDeck is a safe browser for DeWEB: site files are read and verified straight from the chain, every site gets a safety check when it opens, and risks are spelled out before you sign. You can also publish a site from your computer to the chain in one click.">
+  <link rel="icon" href="../icon.png">
+  <link rel="alternate" hreflang="zh" href="https://gettapedeck.com/">
+  <link rel="alternate" hreflang="en" href="https://gettapedeck.com/en/">
+  <link rel="stylesheet" href="../style.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMQJ627ED4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMQJ627ED4');
+  </script>
+  <script>
+    // Count installer downloads: send a download event with the file name when a release asset link is clicked
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href*="/releases/download/"]');
+      if (a) gtag('event', 'download', { file_name: a.href.split('/').pop() });
+    });
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="#"><img src="../icon.png" alt="">TapeDeck</a>
+      <nav aria-label="Page">
+        <ul>
+          <li><a href="#idea">Idea</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#download">Download</a></li>
+        </ul>
+      </nav>
+      <a class="lang" href="../" hreflang="zh" lang="zh-CN" onclick="try{localStorage.setItem('tapedeck-home-lang','zh')}catch(e){}">中文</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="hero">
+      <div class="wrap">
+        <img src="../icon.png" alt="TapeDeck icon">
+        <h1>TapeDeck</h1>
+        <p>Browse and publish decentralized sites safely. Site files are read and verified straight from the chain, every site gets a safety check when it opens, and the risks are spelled out before you sign or send anything.</p>
+        <div class="cta">
+          <a class="btn primary" href="#download">Download 0.1.0</a>
+          <a class="btn" href="#idea">The idea</a>
+        </div>
+        <p class="version">macOS · Windows · Linux</p>
+      </div>
+    </div>
+
+    <section id="idea" aria-labelledby="idea-title">
+      <div class="wrap">
+        <h2 id="idea-title">The idea</h2>
+        <p class="lead">The scariest thing about doing anything on chain is signing the wrong thing and losing your assets. TapeDeck does two jobs: it opens on-chain sites safely, and it puts your own site on chain. On-chain apps are just sites, so when you open one in TapeDeck, every signature and transaction is checked first. A DeWEB site is really an app living in a container (a safe box), so we can also communicate through those containers.</p>
+        <div class="grid">
+          <div class="card"><h3>Safety comes first</h3><p>Content is verified and checked before a site opens, and anything you are asked to sign is put into one plain sentence. Your wallet stays in your own browser extension; TapeDeck never touches your private keys.</p></div>
+          <div class="card"><h3>Sites live on chain</h3><p>Site files are stored on the blockchain and never pass through a gateway server. There is no server to renew and no domain to expire. What you see is exactly what the publisher put there.</p></div>
+          <div class="card"><h3>Publishing takes a few clicks</h3><p>Pick a folder on your computer, preview it, then publish it on chain in one click, with the cost listed up front. No site yet? Generate one with AI in TapeCode Plus.</p></div>
+          <div class="card"><h3>No tech skills needed</h3><p>Checks, publishing and verification are a few fields and a few clicks. TapeDeck handles the on-chain details so you can focus on what you want to do.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <h2 id="features-title">What it does</h2>
+
+        <h3 class="group">Decentralized sites</h3>
+        <div class="grid">
+          <div class="card"><h3>A safety check on every open</h3><p>Every site is checked as it opens: what it will ask you to sign, whether it tries to phish your seed phrase or carries coin-stealing code, and whether the contracts it uses can drain funds. The shield in the address bar shows the result: green is fine, yellow needs a look, red is high risk.</p></div>
+          <div class="card"><h3>Risks explained before you sign</h3><p>Transactions are simulated on chain first, so you see how much will actually leave your wallet. Unlimited approvals, approve-all-NFTs, blind signing and address poisoning are explained in one sentence, and the default button is "Reject".</p></div>
+          <div class="card"><h3>Site permissions</h3><p>Set rules for each identity: whether wallet signatures are allowed, how much token value can be moved, and whether NFTs can be moved. The rules live in the identity's safe box, and any site request beyond them is blocked.</p></div>
+          <div class="card"><h3>Safe browsing</h3><p>Turn it on to record which sites you visited and what your wallet did. When you are done, you decide whether to save the record on chain. If anything ever goes wrong, the record proves whether you visited a site or made a transaction on a given day.</p></div>
+          <div class="card"><h3>Open on-chain sites</h3><p>Enter a site number or a wallet address to open sites stored on BNB Chain, X Layer or Base. Content is verified before it opens, so what you see is what the publisher put there.</p></div>
+          <div class="card"><h3>Following and recent</h3><p>Follow the sites you like, with a safety check before they are added. Recently visited sites are remembered too, one click away.</p></div>
+        </div>
+
+        <h3 class="group">Build and publish</h3>
+        <div class="grid">
+          <div class="card"><h3>Upload and publish</h3><p>Pick a folder on your computer, preview it, then publish it on chain in one click, with the cost listed up front.</p></div>
+          <div class="card"><h3>Paid apps</h3><p>Set a price on your app so only people who paid can use it.</p></div>
+          <div class="card"><h3>Gateway domain</h3><p>Activate it once and anyone can open your site in a regular browser, even without TapeDeck.</p></div>
+          <div class="card"><h3>Wallet site check</h3><p>Enter a wallet address or a site to check every site it holds, sorted by risk, so problems stand out at a glance.</p></div>
+          <div class="card"><h3>TapeCode Plus</h3><p>Open tapecode.ai inside TapeDeck to generate a site with AI, then open the result in a new tab.</p></div>
+        </div>
+
+        <h3 class="group">Secure on-chain apps</h3>
+        <div class="grid">
+          <div class="card"><h3>Two-way identity verification</h3><p>Link your on-chain identity and your X account to each other, so others can confirm the identity really is yours.</p></div>
+          <div class="card"><h3>Send sealed files</h3><p>Files are encrypted on your computer and stored on chain; only the people you choose can open them.</p></div>
+          <div class="card"><h3>Safe box lookup</h3><p>Enter an identity to see what is in its safe box, no wallet needed.</p></div>
+          <div class="card"><h3>Paid sealed delivery</h3><p>Once the buyer pays, the key to the sealed file is handed to them automatically.</p></div>
+        </div>
+
+        <h3 class="group">Identity and messages</h3>
+        <div class="grid">
+          <div class="card"><h3>On-chain identity</h3><p>Own an identity on chain. In your profile you can buy blocks, open safe boxes and manage site permissions.</p></div>
+          <div class="card"><h3>Encrypted messages</h3><p>End-to-end encrypted messages between identities; on-chain links in a message open right in TapeDeck.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" aria-labelledby="download-title">
+      <div class="wrap">
+        <h2 id="download-title">Download</h2>
+        <p class="lead">Latest version 0.1.0. All versions are on <a href="https://github.com/trytotapeout/TapeDeck/releases">GitHub Releases</a>.</p>
+        <table class="downloads">
+          <thead><tr><th scope="col">Platform</th><th scope="col">File</th><th scope="col">Download</th></tr></thead>
+          <tbody>
+            <tr><td>macOS (Apple silicon)</td><td><code>TapeDeck-0.1.0-mac-arm64.dmg</code></td><td><a href="https://github.com/trytotapeout/TapeDeck/releases/download/v0.1.0/TapeDeck-0.1.0-mac-arm64.dmg">Download</a></td></tr>
+            <tr><td>Windows (x64)</td><td><code>TapeDeck-0.1.0-win-x64-setup.exe</code></td><td><a href="https://github.com/trytotapeout/TapeDeck/releases/download/v0.1.0/TapeDeck-0.1.0-win-x64-setup.exe">Download</a></td></tr>
+            <tr><td>Linux (x86_64)</td><td><code>TapeDeck-0.1.0-linux-x86_64.AppImage</code></td><td><a href="https://github.com/trytotapeout/TapeDeck/releases/download/v0.1.0/TapeDeck-0.1.0-linux-x86_64.AppImage">Download</a></td></tr>
+          </tbody>
+        </table>
+        <div class="hint">
+          <p>The SHA-256 of every file is in <a href="https://github.com/trytotapeout/TapeDeck/releases/download/v0.1.0/SHA256SUMS.txt">SHA256SUMS.txt</a>. The first time you open it:</p>
+          <ul>
+            <li>macOS: the app is signed with an Apple Developer ID and notarized. Drag it into Applications and double-click to open</li>
+            <li>Windows: if SmartScreen warns you, click "More info → Run anyway"</li>
+            <li>Linux: run <code>chmod +x</code> first, then run the AppImage</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>TapeDeck · by <a href="https://x.com/boostbob">x.com/boostbob</a></span>
+      <span><a href="https://github.com/trytotapeout/TapeDeck/issues">Report an issue</a> · <a href="https://t.me/+vYYRSzWkbg40NDhl">Join Telegram</a> · <a href="https://discord.gg/7mAxeTWbH">Join Discord</a></span>
+    </div>
+  </footer>
+</body>
+</html>

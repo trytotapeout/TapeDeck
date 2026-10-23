@@ -23,6 +23,10 @@ header.site .wrap { display: flex; align-items: center; justify-content: space-b
 nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
 nav a { color: var(--muted); text-decoration: none; }
 nav a:hover { color: var(--fg); }
+/* 中英切换：导航后面一个小按钮，窄屏导航藏起来时它还在 */
+header.site nav { margin-left: auto; }
+.lang { flex: none; font-size: 14px; color: var(--muted); text-decoration: none; padding: 3px 10px; border: 1px solid var(--line); border-radius: 6px; }
+.lang:hover { color: var(--fg); border-color: var(--line-strong); }
 
 .hero { padding: 72px 0 48px; text-align: center; }
 .hero img { width: 96px; height: 96px; }

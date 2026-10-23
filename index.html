@@ -6,6 +6,16 @@
   <title>TapeDeck · 安全地浏览和发布去中心化网站</title>
   <meta name="description" content="TapeDeck 是 DeWEB 的安全浏览器：网站文件直接从链上读取并校验，打开就做安全体检，签名和交易之前把风险讲清楚。也能把本机的网站一键发布上链。">
   <link rel="icon" href="icon.png">
+  <link rel="alternate" hreflang="zh" href="https://gettapedeck.com/">
+  <link rel="alternate" hreflang="en" href="https://gettapedeck.com/en/">
+  <script>
+    // 第一次来、浏览器不是中文的，转到英文页；点过语言切换就按点的来（存在 localStorage）
+    (function () {
+      var pick = null;
+      try { pick = localStorage.getItem('tapedeck-home-lang'); } catch (e) {}
+      if (pick === 'en' || (!pick && !/^zh/i.test(navigator.language || ''))) location.replace('en/' + location.hash);
+    })();
+  </script>
   <link rel="stylesheet" href="style.css">
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMQJ627ED4"></script>
@@ -35,6 +45,7 @@
           <li><a href="#download">下载</a></li>
         </ul>
       </nav>
+      <a class="lang" href="en/" hreflang="en" lang="en" onclick="try{localStorage.setItem('tapedeck-home-lang','en')}catch(e){}">English</a>
     </div>
   </header>
 
