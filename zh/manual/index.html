@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>操作手册 · TapeDeck</title>
+  <meta name="description" content="TapeDeck 操作手册：安装、打开链上网站、看懂安全体检、连接钱包、身份和加密消息、发布自己的网站。">
+  <link rel="icon" href="../../icon.png">
+  <link rel="alternate" hreflang="zh" href="https://gettapedeck.com/zh/manual/">
+  <link rel="alternate" hreflang="en" href="https://gettapedeck.com/manual/">
+  <link rel="alternate" hreflang="x-default" href="https://gettapedeck.com/manual/">
+  <link rel="stylesheet" href="../../style.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79BNJR3RXY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-79BNJR3RXY');
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="../"><img src="../../icon.png" alt="">TapeDeck</a>
+      <nav aria-label="页面导航">
+        <ul>
+          <li><a href="../#idea">理念</a></li>
+          <li><a href="../#features">功能</a></li>
+          <li><a href="../#download">下载</a></li>
+          <li><a href="./" aria-current="page">操作手册</a></li>
+        </ul>
+      </nav>
+      <a class="lang" href="../../manual/" hreflang="en" lang="en" onclick="try{localStorage.setItem('tapedeck-home-lang','en')}catch(e){}">English</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap manual">
+      <nav class="toc" aria-label="手册目录">
+        <p>目录</p>
+        <ol>
+          <li><a href="#install">安装和更新</a></li>
+          <li><a href="#open">打开链上网站</a></li>
+          <li><a href="#safety">看懂安全提示</a></li>
+          <li><a href="#wallet">连接钱包</a></li>
+          <li><a href="#home">新标签页</a></li>
+          <li><a href="#identity">身份和个人中心</a></li>
+          <li><a href="#messages">加密消息</a></li>
+          <li><a href="#sealed">发送密级文件</a></li>
+          <li><a href="#xverify">双向身份认证</a></li>
+          <li><a href="#lookup">查资产和查钱包</a></li>
+          <li><a href="#publish">发布自己的网站</a></li>
+          <li><a href="#lock">锁定和设置</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ol>
+      </nav>
+
+      <article>
+        <h1>操作手册</h1>
+        <p class="lead">从安装到发布网站，按步骤讲清楚 TapeDeck 的每个功能。不懂区块链也能照着做。</p>
+
+        <section id="install" aria-labelledby="install-title">
+          <h2 id="install-title">安装和更新</h2>
+          <p>到首页的<a href="../#download">下载</a>区选择自己的系统，安装包都发布在 GitHub Releases，每个版本附有 <code>SHA256SUMS.txt</code> 可以核对文件。</p>
+          <ul>
+            <li>macOS（Apple 芯片）：打开 dmg，把 TapeDeck 拖进「应用程序」，双击打开。安装包已签名并通过 Apple 公证</li>
+            <li>Windows：运行安装程序，SmartScreen 提示时点「更多信息 → 仍要运行」</li>
+            <li>Linux：给 AppImage 加上执行权限（<code>chmod +x</code>）再运行</li>
+          </ul>
+          <p>TapeDeck 启动时会检查新版本，有新版本时弹窗提示，书签和设置升级后都会保留。也可以在菜单里点「检查更新…」：mac 在 TapeDeck 菜单，Windows 和 Linux 在帮助菜单。</p>
+        </section>
+
+        <section id="open" aria-labelledby="open-title">
+          <h2 id="open-title">打开链上网站</h2>
+          <p>链上网站存在 BNB Chain、X Layer、Base 三条链上，用一串数字表示。在地址栏输入就能打开：</p>
+          <table>
+            <thead><tr><th scope="col">输入</th><th scope="col">效果</th></tr></thead>
+            <tbody>
+              <tr><td><code>4454.0</code></td><td>BNB Chain 上的网站（不带区号）</td></tr>
+              <tr><td><code>1.2.344</code></td><td>X Layer 上的网站（区号 2）</td></tr>
+              <tr><td><code>1.3.5</code></td><td>Base 上的网站（区号 3）</td></tr>
+              <tr><td><code>12330</code></td><td>没写点时，TapeDeck 会试所有可能的拆法，找到的网站各开一个标签</td></tr>
+              <tr><td><code>0x…</code> 钱包地址</td><td>打开这个钱包在三条链上持有的全部网站</td></tr>
+              <tr><td><code>example.com</code></td><td>普通网页照常打开，但不受链上校验保护</td></tr>
+            </tbody>
+          </table>
+          <p>别人分享给你的 <code>gettapedeck.com/open/?…</code> 链接，点开后会唤起 TapeDeck 打开对应网站；没装 TapeDeck 的人会看到下载按钮。</p>
+          <h3>常用快捷键</h3>
+          <p>Windows 和 Linux 把 <kbd>⌘</kbd> 换成 <kbd>Ctrl</kbd>。</p>
+          <table>
+            <tbody>
+              <tr><td><kbd>⌘</kbd> <kbd>T</kbd> / <kbd>⌘</kbd> <kbd>W</kbd> / <kbd>⌘</kbd> <kbd>L</kbd></td><td>新标签页 / 关闭标签页 / 跳到地址栏</td></tr>
+              <tr><td><kbd>⌘</kbd> <kbd>D</kbd></td><td>把当前网站加入或移出「我的关注」</td></tr>
+              <tr><td><kbd>⌘</kbd> <kbd>F</kbd></td><td>页内查找</td></tr>
+              <tr><td><kbd>⌘</kbd> <kbd>+</kbd> / <kbd>⌘</kbd> <kbd>-</kbd> / <kbd>⌘</kbd> <kbd>0</kbd></td><td>放大 / 缩小 / 实际大小</td></tr>
+            </tbody>
+          </table>
+          <p>地址栏右边可以把网页切成平板或手机尺寸，每个网站会记住你的选择。</p>
+        </section>
+
+        <section id="safety" aria-labelledby="safety-title">
+          <h2 id="safety-title">看懂安全提示</h2>
+          <h3>地址栏的盾牌</h3>
+          <p>网站打开后会自动体检，盾牌的颜色就是结论：</p>
+          <ul>
+            <li>绿色：没发现问题</li>
+            <li>黄色：有需要留意的地方，或者加载了不在链上的外部脚本</li>
+            <li>红色：发现高危特征，比如骗助记词、偷偷把资产授权出去</li>
+            <li>灰色：普通网页、本地预览，或者还没体检完（体检中会闪烁）</li>
+          </ul>
+          <p>点盾牌能看完整报告：网站会请你做哪些钱包操作、代码里写死的地址是合约还是普通钱包、这些合约的主人能做什么。体检全在你的电脑上完成，不上传任何内容。</p>
+          <h3>「链上」按钮</h3>
+          <p>盾牌旁边的「链上」按钮打开网站信息面板：持有人、文件指纹、上链时间、分享链接和打赏。按钮上的提示要留意：</p>
+          <ul>
+            <li>节点结果不一致（按钮变红）：两个节点读到的内容不同，先别在这个网站上签名</li>
+            <li>含外部脚本：网站有部分内容来自外部服务器，这部分不受链上校验保护</li>
+            <li>离线缓存：读链失败，显示的是上次缓存的版本</li>
+            <li>持有人已变、有更新：网站换了主人，或者首页在你上次访问后改过</li>
+          </ul>
+          <h3>签名和交易确认</h3>
+          <p>网站请钱包签名或发交易时，TapeDeck 先弹窗用一句话说明这次操作会做什么，再交给钱包扩展。无限额授权、授权全部 NFT、Permit 离线授权、挂单、盲签这类高危操作，默认按钮是「拒绝」。看不懂的操作就拒绝，不会有损失。</p>
+          <p class="note">这些检查能降低风险，但「没有发现问题」不等于绝对安全。TapeDeck 能证明内容来自链上、没被篡改，判断不了网站作者本人有没有恶意。</p>
+        </section>
+
+        <section id="wallet" aria-labelledby="wallet-title">
+          <h2 id="wallet-title">连接钱包</h2>
+          <p>TapeDeck 不导入私钥，签名仍由你系统浏览器里的钱包扩展（MetaMask 等）完成。</p>
+          <ol>
+            <li>点工具栏的「连接钱包」，或在网站里点连接</li>
+            <li>TapeDeck 在系统浏览器打开一个本机页面，在那里选好钱包扩展并授权</li>
+            <li>回到 TapeDeck，确认是否把地址给这个网站</li>
+          </ol>
+          <p>钱包扩展里看到的来源会是 <code>127.0.0.1</code>，这是 TapeDeck 的本机桥接页面，属于正常情况。钱包按钮变红并显示 ⚠ 时，说明钱包不在 X Layer 上，点一下就能切过去。要断开钱包，去「设置」或菜单「钱包 → 断开钱包」；授权过的网站也可以在设置里逐个取消。</p>
+        </section>
+
+        <section id="home" aria-labelledby="home-title">
+          <h2 id="home-title">新标签页</h2>
+          <p>新标签页左边的菜单分四组：</p>
+          <ul>
+            <li>去中心化网站：我的关注、最近访问</li>
+            <li>创建网站应用：上传发布应用、激活网关域名、钱包网站体检、TapeCode Plus（用 AI 生成网站）</li>
+            <li>安全链上应用：查保管箱资产、双向身份认证、发送密级文件</li>
+            <li>更多：个人中心、加密消息、使用帮助、设置</li>
+          </ul>
+          <p>「我的关注」就是书签，加入前会先做一次安全体检。「最近访问」最多记 200 个网站。这些都只存在你的电脑上。</p>
+        </section>
+
+        <section id="identity" aria-labelledby="identity-title">
+          <h2 id="identity-title">身份和个人中心</h2>
+          <p>身份是你在 X Layer 上持有的一枚电路，显示成 <code>xlayer23331</code> 这样的 ID，可以理解成链上的护照，自带一个保管箱。加密消息、密级文件、X 认证、发布网站都要用到身份。</p>
+          <ol>
+            <li>连接钱包，工具栏会显示「注册身份」</li>
+            <li>点它，在钱包里确认两笔交易：买 1 块积木，再用它搭出身份</li>
+            <li>注册好后工具栏显示当前身份，有多个身份时点开就能切换</li>
+          </ol>
+          <p>个人中心（更多 → 个人中心）里能看积木数量并购买，查看每个身份的保管箱和资产，开通保管箱、开通加密通讯、去做 X 认证。</p>
+        </section>
+
+        <section id="messages" aria-labelledby="messages-title">
+          <h2 id="messages-title">加密消息</h2>
+          <p>身份之间可以互发端到端加密的消息，和 TapeSend 互通。</p>
+          <ol>
+            <li>开通加密通讯：在个人中心为身份开通。钱包会让你签两次同一段文字，再发 1 笔交易。签名文字里写的是 www.tapesend.com，钱包提示域名不一致属于正常</li>
+            <li>写消息：更多 → 加密消息，收件人填对方的身份 ID 或电路地址，TapeDeck 会检查对方能不能收，并显示对方的 X 认证状态。发送需要 1 笔交易</li>
+            <li>读消息：签名一次解锁后能看正文。消息里的链上网站链接会变成按钮，点了在 TapeDeck 里打开</li>
+          </ol>
+          <p>TapeDeck 每分钟查一次有没有新消息，有就在菜单上显示未读数并发系统通知。</p>
+        </section>
+
+        <section id="sealed" aria-labelledby="sealed-title">
+          <h2 id="sealed-title">发送密级文件</h2>
+          <ol>
+            <li>新标签页 → 发送密级文件，选文件（最多 8 MB），填收件人</li>
+            <li>文件在你的电脑上加密后存到自己的保管箱，钥匙通过加密消息发给对方。钱包最多确认 3 次</li>
+            <li>对方在收件箱看到「密级文件」，点「下载并解密」保存</li>
+          </ol>
+          <p>上传途中可以暂停，之后接着传。注意密文会永久留在链上，对方解开后能转给别人，技术上拦不住。</p>
+        </section>
+
+        <section id="xverify" aria-labelledby="xverify-title">
+          <h2 id="xverify-title">双向身份认证</h2>
+          <p>证明某个身份和某个 X 账号是同一个人控制的，别人就能在你的身份旁看到 @用户名。</p>
+          <ol>
+            <li>按界面生成的内容发一条推文，里面必须保留「TapeDeck 认证：你的钱包地址」这一行，其他文字可以改</li>
+            <li>把推文链接贴回来，钱包签一份声明，存进这个身份的保管箱</li>
+            <li>完成后任何人都能输入你的身份 ID 查到认证结果</li>
+          </ol>
+          <p>删推就等于解除绑定。绑定会公开这个钱包的余额和交易记录，删推也收不回，建议用非主力钱包。</p>
+        </section>
+
+        <section id="lookup" aria-labelledby="lookup-title">
+          <h2 id="lookup-title">查资产和查钱包</h2>
+          <h3>查保管箱资产</h3>
+          <p>填身份 ID（如 <code>xlayer23331</code>）或电路地址（如 <code>1.2.248</code>），就能看到保管箱地址、持有人和里面的常见资产，不用连钱包。其他代币和 NFT 可以点链接到 OKLink 查看。</p>
+          <h3>钱包网站体检</h3>
+          <p>输入一个钱包地址，TapeDeck 会找出它在三条链上持有的全部网站，逐个做安全体检，按风险排序。发现高危的网站要连点两次才会打开。</p>
+        </section>
+
+        <section id="publish" aria-labelledby="publish-title">
+          <h2 id="publish-title">发布自己的网站</h2>
+          <p>发布目前只支持 X Layer，还在实验阶段。开通费和 Gas 是真实花费，建议先用一个小网站试一次。</p>
+          <ol>
+            <li>准备一个文件夹，根目录要有 <code>index.html</code>。还没有网站的话，可以先用 TapeCode Plus 让 AI 生成一个</li>
+            <li>新标签页 → 上传发布应用，选好文件夹，先在本地预览。改了文件，标签会自动刷新</li>
+            <li>点地址栏左边的「本地」按钮看预检查：要传多少文件、几笔交易、有没有错误和警告</li>
+            <li>没问题就点「继续发布」，发布页会列出计划和预估花费</li>
+            <li>钱包通常确认 2 到 3 笔交易（开通保管箱、授权临时钱包、充值上传用的 Gas），之后的上传自动完成，用剩的 Gas 会退回</li>
+          </ol>
+          <p>几点要知道：</p>
+          <ul>
+            <li>链上文件只增不改，内容变了的文件要换个文件名；只有根目录的 <code>index.html</code> 可以整个替换</li>
+            <li>中途暂停、关掉应用或断网，再打开发布页能接着传</li>
+            <li>想在网站目录里有好看的卡片，可以在根目录放 <code>logo.png</code>（正方形，推荐 256×256）和 <code>cover.png</code>（16:10，推荐 640×400），每张不超过 50 KB</li>
+            <li>想让没装 TapeDeck 的人用普通浏览器打开，到「激活网关域名」激活一次</li>
+          </ul>
+        </section>
+
+        <section id="lock" aria-labelledby="lock-title">
+          <h2 id="lock-title">锁定和设置</h2>
+          <p>在「设置 → 解锁密码」设一个至少 6 个字的密码后，工具栏的锁按钮就能用了。锁着时网页都会藏起来，网站也不能请钱包签名。</p>
+          <ul>
+            <li>输错 3 次后要等一会儿，错得越多等得越久，最多 15 分钟</li>
+            <li>忘了密码，可以在锁屏上「清除本机数据并重置」。会清掉最近访问、我的关注、网站授权和缓存，链上的东西不受影响</li>
+          </ul>
+          <p>设置里还能切换中文和英文、给三条链填自定义节点、取消网站的钱包授权、清除内容缓存。</p>
+        </section>
+
+        <section id="faq" aria-labelledby="faq-title">
+          <h2 id="faq-title">常见问题</h2>
+          <h3>TapeDeck 会碰我的私钥吗？</h3>
+          <p>不会。钱包一直在你自己的浏览器扩展里，TapeDeck 只把签名请求转过去，并在之前把风险讲清楚。</p>
+          <h3>盾牌是绿色，就一定安全吗？</h3>
+          <p>不一定。体检是按已知的作恶特征检查，能挡住常见的骗局，但不能保证网站作者没有恶意。签名前仍要看清楚弹窗里写的内容。</p>
+          <h3>打不开网站怎么办？</h3>
+          <p>先确认数字和链对得上，比如 X Layer 的网站要带区号 2。公共节点偶尔会慢或失败，可以稍后重试，或者在设置里换成自己的节点。还是不行可以到 <a href="https://github.com/trytotapeout/TapeDeck/issues">GitHub</a> 反馈。</p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>TapeDeck · 作者 <a href="https://x.com/boostbob">x.com/boostbob</a></span>
+      <span><a href="https://github.com/trytotapeout/TapeDeck/issues">反馈问题</a> · <a href="https://t.me/+vYYRSzWkbg40NDhl">加入 Telegram</a> · <a href="https://discord.gg/7mAxeTWbH">加入 Discord</a></span>
+    </div>
+  </footer>
+</body>
+</html>

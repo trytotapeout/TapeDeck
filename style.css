@@ -92,3 +92,26 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 /* 功能按左侧菜单分组 */
 h3.group { font-size: 15px; font-weight: 600; color: var(--muted); margin: 32px 0 12px; }
 h3.group:first-of-type { margin-top: 8px; }
+
+/* 操作手册 manual/：左边目录，右边正文 */
+.manual { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding-top: 40px; padding-bottom: 64px; }
+.manual .toc { position: sticky; top: 24px; align-self: start; font-size: 14px; }
+.manual .toc p { font-weight: 600; margin: 0 0 8px; }
+.manual .toc ol { list-style: none; margin: 0; padding: 0; }
+.manual .toc li { margin: 4px 0; }
+.manual .toc a { color: var(--muted); text-decoration: none; }
+.manual .toc a:hover { color: var(--fg); }
+.manual article { max-width: 760px; }
+.manual h1 { font-size: 32px; font-weight: 600; line-height: 1.2; margin: 0 0 8px; }
+.manual article > p.lead { color: var(--muted); margin: 0 0 8px; }
+.manual article section { padding: 32px 0 0; border-top: 0; scroll-margin-top: 16px; }
+.manual article h2 { font-size: 22px; margin: 0 0 10px; }
+.manual article h3 { font-size: 17px; margin: 22px 0 6px; }
+.manual article ul, .manual article ol { padding-left: 22px; }
+.manual article li { margin: 4px 0; }
+.manual table { margin: 12px 0; }
+kbd { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.85em; border: 1px solid var(--line-strong); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: var(--card); }
+@media (max-width: 860px) {
+  .manual { grid-template-columns: 1fr; gap: 16px; }
+  .manual .toc { position: static; display: block; }
+}

@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual · TapeDeck</title>
+  <meta name="description" content="The TapeDeck manual: installing, opening on-chain sites, reading the safety check, connecting a wallet, identities and encrypted messages, and publishing your own site.">
+  <link rel="icon" href="../icon.png">
+  <link rel="alternate" hreflang="zh" href="https://gettapedeck.com/zh/manual/">
+  <link rel="alternate" hreflang="en" href="https://gettapedeck.com/manual/">
+  <link rel="alternate" hreflang="x-default" href="https://gettapedeck.com/manual/">
+  <script>
+    // Same rule as the home page: a saved choice wins, otherwise Chinese browsers go to the Chinese manual
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('tapedeck-home-lang'); } catch (e) {}
+      var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+      var zh = saved ? saved === 'zh' : /^zh/i.test(langs[0] || '');
+      if (zh) location.replace('../zh/manual/' + location.search + location.hash);
+    })();
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79BNJR3RXY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-79BNJR3RXY');
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="../"><img src="../icon.png" alt="">TapeDeck</a>
+      <nav aria-label="Page">
+        <ul>
+          <li><a href="../#idea">Idea</a></li>
+          <li><a href="../#features">Features</a></li>
+          <li><a href="../#download">Download</a></li>
+          <li><a href="./" aria-current="page">Manual</a></li>
+        </ul>
+      </nav>
+      <a class="lang" href="../zh/manual/" hreflang="zh" lang="zh-CN" onclick="try{localStorage.setItem('tapedeck-home-lang','zh')}catch(e){}">中文</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap manual">
+      <nav class="toc" aria-label="Manual contents">
+        <p>Contents</p>
+        <ol>
+          <li><a href="#install">Install and update</a></li>
+          <li><a href="#open">Open on-chain sites</a></li>
+          <li><a href="#safety">Reading the safety signs</a></li>
+          <li><a href="#wallet">Connect a wallet</a></li>
+          <li><a href="#home">The new tab page</a></li>
+          <li><a href="#identity">Identity and account</a></li>
+          <li><a href="#messages">Encrypted messages</a></li>
+          <li><a href="#sealed">Send a sealed file</a></li>
+          <li><a href="#xverify">Two-way X verification</a></li>
+          <li><a href="#lookup">Look up assets and wallets</a></li>
+          <li><a href="#publish">Publish your own site</a></li>
+          <li><a href="#lock">Lock and settings</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </nav>
+
+      <article>
+        <h1>Manual</h1>
+        <p class="lead">Every TapeDeck feature, step by step, from installing to publishing a site. No blockchain background needed.</p>
+
+        <section id="install" aria-labelledby="install-title">
+          <h2 id="install-title">Install and update</h2>
+          <p>Pick your system in the <a href="../#download">Download</a> section of the home page. Installers are published on GitHub Releases, and every version comes with <code>SHA256SUMS.txt</code> so you can check the files.</p>
+          <ul>
+            <li>macOS (Apple silicon): open the dmg, drag TapeDeck into Applications, then double-click it. The app is signed and notarized by Apple</li>
+            <li>Windows: run the installer. If SmartScreen appears, click "More info → Run anyway"</li>
+            <li>Linux: make the AppImage executable (<code>chmod +x</code>) and run it</li>
+          </ul>
+          <p>TapeDeck checks for a new version when it starts and tells you when one is out. Bookmarks and settings are kept across updates. You can also click "Check for Updates…" in the menu: the TapeDeck menu on mac, the Help menu on Windows and Linux.</p>
+        </section>
+
+        <section id="open" aria-labelledby="open-title">
+          <h2 id="open-title">Open on-chain sites</h2>
+          <p>On-chain sites live on BNB Chain, X Layer and Base, and each one is named by a short string of numbers. Type it into the address bar:</p>
+          <table>
+            <thead><tr><th scope="col">Type</th><th scope="col">What happens</th></tr></thead>
+            <tbody>
+              <tr><td><code>4454.0</code></td><td>A site on BNB Chain (no region number)</td></tr>
+              <tr><td><code>1.2.344</code></td><td>A site on X Layer (region 2)</td></tr>
+              <tr><td><code>1.3.5</code></td><td>A site on Base (region 3)</td></tr>
+              <tr><td><code>12330</code></td><td>Without dots, TapeDeck tries every possible split and opens a tab for each site it finds</td></tr>
+              <tr><td><code>0x…</code> wallet address</td><td>Opens every site that wallet holds on the three chains</td></tr>
+              <tr><td><code>example.com</code></td><td>A regular web page, which is not covered by on-chain verification</td></tr>
+            </tbody>
+          </table>
+          <p>A shared <code>gettapedeck.com/open/?…</code> link opens the site in TapeDeck. People without TapeDeck see a download button instead.</p>
+          <h3>Keyboard shortcuts</h3>
+          <p>On Windows and Linux, use <kbd>Ctrl</kbd> in place of <kbd>⌘</kbd>.</p>
+          <table>
+            <tbody>
+              <tr><td><kbd>⌘</kbd> <kbd>T</kbd> / <kbd>⌘</kbd> <kbd>W</kbd> / <kbd>⌘</kbd> <kbd>L</kbd></td><td>New tab / close tab / go to the address bar</td></tr>
+              <tr><td><kbd>⌘</kbd> <kbd>D</kbd></td><td>Add the current site to Following, or remove it</td></tr>
+              <tr><td><kbd>⌘</kbd> <kbd>F</kbd></td><td>Find in page</td></tr>
+              <tr><td><kbd>⌘</kbd> <kbd>+</kbd> / <kbd>⌘</kbd> <kbd>-</kbd> / <kbd>⌘</kbd> <kbd>0</kbd></td><td>Zoom in / zoom out / actual size</td></tr>
+            </tbody>
+          </table>
+          <p>The right end of the address bar switches the page to tablet or phone width, and each site remembers your choice.</p>
+        </section>
+
+        <section id="safety" aria-labelledby="safety-title">
+          <h2 id="safety-title">Reading the safety signs</h2>
+          <h3>The shield in the address bar</h3>
+          <p>Every site is checked as it opens, and the shield's color is the result:</p>
+          <ul>
+            <li>Green: no problems found</li>
+            <li>Yellow: something worth a look, or scripts loaded from outside the chain</li>
+            <li>Red: high-risk patterns, such as phishing for your seed phrase or quietly approving away your assets</li>
+            <li>Gray: a regular web page, a local preview, or a check that has not finished (it blinks while checking)</li>
+          </ul>
+          <p>Click the shield for the full report: which wallet actions the site may ask for, whether the addresses in its code are contracts or plain wallets, and what the owners of those contracts can do. The check runs entirely on your computer and uploads nothing.</p>
+          <h3>The "On-chain" button</h3>
+          <p>The "On-chain" button next to the shield opens the site panel: owner, file fingerprint, publish time, share link and tipping. Watch for these labels on the button:</p>
+          <ul>
+            <li>Nodes disagree (the button turns red): two nodes returned different content. Do not sign anything on this site for now</li>
+            <li>External scripts: part of the site comes from outside servers and is not covered by on-chain verification</li>
+            <li>Offline cache: reading the chain failed, so you are seeing the last cached version</li>
+            <li>New owner, Updated: the site changed hands, or its home page changed since your last visit</li>
+          </ul>
+          <h3>Signing and transactions</h3>
+          <p>When a site asks your wallet to sign or send a transaction, TapeDeck first explains in one sentence what will happen, then hands it to your wallet extension. For high-risk requests like unlimited approvals, approve-all-NFTs, Permit signatures, listings and blind signing, the default button is "Reject". If you do not understand a request, reject it. Rejecting costs you nothing.</p>
+          <p class="note">These checks lower the risk, but "no problems found" does not mean guaranteed safe. TapeDeck can prove the content came from the chain untouched. It cannot tell whether the site's author means harm.</p>
+        </section>
+
+        <section id="wallet" aria-labelledby="wallet-title">
+          <h2 id="wallet-title">Connect a wallet</h2>
+          <p>TapeDeck never imports your private key. Signing is still done by the wallet extension (MetaMask and others) in your regular browser.</p>
+          <ol>
+            <li>Click "Connect wallet" in the toolbar, or connect from inside a site</li>
+            <li>TapeDeck opens a local page in your regular browser. Pick your wallet extension there and approve</li>
+            <li>Back in TapeDeck, confirm whether to share your address with the site</li>
+          </ol>
+          <p>Your wallet extension will show the request as coming from <code>127.0.0.1</code>. That is TapeDeck's local bridge page, and it is expected. If the wallet button turns red with a ⚠, your wallet is not on X Layer; click it to switch. To disconnect, use Settings or the menu "Wallet → Disconnect Wallet". You can also revoke individual sites in Settings.</p>
+        </section>
+
+        <section id="home" aria-labelledby="home-title">
+          <h2 id="home-title">The new tab page</h2>
+          <p>The menu on the left of a new tab has four groups:</p>
+          <ul>
+            <li>Decentralized sites: Following, Recent</li>
+            <li>Create apps: Upload &amp; Publish an App, Activate gateway domain, Wallet site check, TapeCode Plus (generate a site with AI)</li>
+            <li>Secure on-chain apps: Check container assets, Two-way X verification, Send a sealed file</li>
+            <li>More: Account, Encrypted messages, Help, Settings</li>
+          </ul>
+          <p>Following works like bookmarks, and each site gets a safety check before it is added. Recent remembers up to 200 sites. All of this stays on your computer.</p>
+        </section>
+
+        <section id="identity" aria-labelledby="identity-title">
+          <h2 id="identity-title">Identity and account</h2>
+          <p>An identity is a circuit you hold on X Layer, shown as an ID like <code>xlayer23331</code>. Think of it as an on-chain passport with its own safe box (called a container in the app). Encrypted messages, sealed files, X verification and publishing all use an identity.</p>
+          <ol>
+            <li>Connect your wallet. The toolbar shows "Register identity"</li>
+            <li>Click it and confirm two transactions in your wallet: buy one block, then build the identity from it</li>
+            <li>Once registered, the toolbar shows your current identity. If you have several, click it to switch</li>
+          </ol>
+          <p>Account (More → Account) shows your blocks and lets you buy more, lists each identity's container and assets, and lets you open a container, turn on encrypted messaging and start X verification.</p>
+        </section>
+
+        <section id="messages" aria-labelledby="messages-title">
+          <h2 id="messages-title">Encrypted messages</h2>
+          <p>Identities can send each other end-to-end encrypted messages, compatible with TapeSend.</p>
+          <ol>
+            <li>Turn on encrypted messaging: do it for an identity in Account. Your wallet asks you to sign the same text twice, then send one transaction. The text mentions www.tapesend.com, so a domain-mismatch warning from your wallet is expected</li>
+            <li>Write: More → Encrypted messages. Enter the recipient's identity ID or circuit address; TapeDeck checks that they can receive and shows their X verification status. Sending takes one transaction</li>
+            <li>Read: sign once to unlock and see the message text. On-chain site links in a message become buttons that open in TapeDeck</li>
+          </ol>
+          <p>TapeDeck checks for new messages every minute and shows an unread count plus a system notification when one arrives.</p>
+        </section>
+
+        <section id="sealed" aria-labelledby="sealed-title">
+          <h2 id="sealed-title">Send a sealed file</h2>
+          <ol>
+            <li>New tab → Send a sealed file. Pick a file (up to 8 MB) and enter the recipient</li>
+            <li>The file is encrypted on your computer and stored in your own container, and the key is sent to the recipient in an encrypted message. Your wallet confirms at most 3 times</li>
+            <li>The recipient sees the sealed file in their inbox and clicks "Download and decrypt"</li>
+          </ol>
+          <p>You can pause the upload and resume later. The encrypted file stays on chain for good, and once the recipient opens it they can pass it on; there is no technical way to stop that.</p>
+        </section>
+
+        <section id="xverify" aria-labelledby="xverify-title">
+          <h2 id="xverify-title">Two-way X verification</h2>
+          <p>Proves that an identity and an X account are controlled by the same person, so others see your @username next to the identity.</p>
+          <ol>
+            <li>Post the tweet the app drafts for you. Keep the line "TapeDeck verify: your wallet address"; the rest of the text can change</li>
+            <li>Paste the tweet link back, and sign a statement with your wallet. It is stored in that identity's container</li>
+            <li>Anyone can then enter your identity ID and see the result</li>
+          </ol>
+          <p>Deleting the tweet removes the link. Linking makes the wallet's balance and history public, and deleting the tweet cannot undo that, so a secondary wallet is a good idea.</p>
+        </section>
+
+        <section id="lookup" aria-labelledby="lookup-title">
+          <h2 id="lookup-title">Look up assets and wallets</h2>
+          <h3>Check container assets</h3>
+          <p>Enter an identity ID (like <code>xlayer23331</code>) or a circuit address (like <code>1.2.248</code>) to see the container address, its owner and the common assets inside. No wallet needed. Other tokens and NFTs are one click away on OKLink.</p>
+          <h3>Wallet site check</h3>
+          <p>Enter a wallet address and TapeDeck finds every site it holds on the three chains, checks each one and sorts them by risk. A high-risk site needs two clicks to open.</p>
+        </section>
+
+        <section id="publish" aria-labelledby="publish-title">
+          <h2 id="publish-title">Publish your own site</h2>
+          <p>Publishing currently works on X Layer only and is still experimental. Container fees and gas are real costs, so try a small site first.</p>
+          <ol>
+            <li>Prepare a folder with an <code>index.html</code> at the top level. No site yet? Generate one with AI in TapeCode Plus</li>
+            <li>New tab → Upload &amp; Publish an App. Pick the folder and it opens as a local preview. The tab refreshes when you change a file</li>
+            <li>Click the "Local" button left of the address bar for the pre-check: how many files and transactions, plus any errors and warnings</li>
+            <li>When it looks good, click "Continue publishing". The publish page lists the plan and the estimated cost</li>
+            <li>Your wallet usually confirms 2 to 3 transactions (open the container, authorize a temporary wallet, fund it with gas). The upload then runs by itself, and leftover gas is refunded</li>
+          </ol>
+          <p>Good to know:</p>
+          <ul>
+            <li>Files on chain can be added but not changed, so give a changed file a new name. Only the top-level <code>index.html</code> can be replaced</li>
+            <li>If you pause, quit or lose the network, open the publish page again to continue</li>
+            <li>For a nice card in the site directory, add <code>logo.png</code> (square, 256×256 recommended) and <code>cover.png</code> (16:10, 640×400 recommended) at the top level, each under 50 KB</li>
+            <li>To let people without TapeDeck open your site in a regular browser, activate it once under "Activate gateway domain"</li>
+          </ul>
+        </section>
+
+        <section id="lock" aria-labelledby="lock-title">
+          <h2 id="lock-title">Lock and settings</h2>
+          <p>Set a password of at least 6 characters under Settings → Unlock password, and the lock button in the toolbar starts working. While locked, pages are hidden and sites cannot ask your wallet to sign.</p>
+          <ul>
+            <li>After 3 wrong tries you have to wait, and the wait grows with each miss, up to 15 minutes</li>
+            <li>Forgot the password? Use "Clear this computer's data and reset" on the lock screen. It clears Recent, Following, site permissions and the cache. Nothing on chain is affected</li>
+          </ul>
+          <p>Settings also lets you switch between English and Chinese, set your own node for each chain, revoke site wallet access and clear the content cache.</p>
+        </section>
+
+        <section id="faq" aria-labelledby="faq-title">
+          <h2 id="faq-title">FAQ</h2>
+          <h3>Does TapeDeck touch my private key?</h3>
+          <p>No. Your wallet stays in your own browser extension. TapeDeck only passes signing requests along, after explaining the risk.</p>
+          <h3>Is a green shield always safe?</h3>
+          <p>Not always. The check looks for known malicious patterns and catches common scams, but it cannot promise the author means no harm. Still read the confirmation before you sign.</p>
+          <h3>A site will not open. What now?</h3>
+          <p>Check that the number matches the chain; an X Layer site needs region 2, for example. Public nodes are sometimes slow or fail, so try again later or set your own node in Settings. If it still fails, report it on <a href="https://github.com/trytotapeout/TapeDeck/issues">GitHub</a>.</p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>TapeDeck · by <a href="https://x.com/boostbob">x.com/boostbob</a></span>
+      <span><a href="https://github.com/trytotapeout/TapeDeck/issues">Report an issue</a> · <a href="https://t.me/+vYYRSzWkbg40NDhl">Join Telegram</a> · <a href="https://discord.gg/7mAxeTWbH">Join Discord</a></span>
+    </div>
+  </footer>
+</body>
+</html>
