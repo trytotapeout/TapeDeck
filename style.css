@@ -124,10 +124,27 @@ kbd { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.85em; 
   display: block; width: 100%; height: auto;
   border: 1px solid var(--line); border-radius: 10px;
 }
-.shot video { background: #141416; aspect-ratio: 16 / 9; }
+.shot video { background: #fff; aspect-ratio: 16 / 9; }
 /* 介绍区放视频时：标题贴近顶部，视频紧跟标题 */
 .hero.with-video { padding-top: 28px; }
 .hero .shot.top { margin: 0 auto 32px; }
+/* 视频封面中间的播放按钮：黑色圆底白三角，放在文字下方的空白处 */
+.shot.video { position: relative; }
+.shot .play {
+  /* 按钮跟着视频宽度缩放，窄屏上不压住文字；三角用 em 跟着按钮大小走 */
+  --d: clamp(48px, 9vw, 88px);
+  position: absolute; left: 50%; top: 77%; width: var(--d); height: var(--d);
+  margin: calc(var(--d) / -2) 0 0 calc(var(--d) / -2); font-size: var(--d);
+  border: 0; border-radius: 50%; background: rgba(28, 27, 25, .88); cursor: pointer;
+  transition: transform .15s, background .15s;
+}
+.shot .play::before {
+  content: ""; position: absolute; left: .4em; top: .3em;
+  border-style: solid; border-width: .2em 0 .2em .34em; border-color: transparent transparent transparent #fff;
+}
+.shot .play:hover { transform: scale(1.06); background: #1c1b19; }
+.shot .play:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; }
+.shot .play[hidden] { display: none; }
 .shot figcaption { color: var(--muted); font-size: 14px; margin-top: 8px; }
 .hero .shot { max-width: 960px; margin: 40px auto 0; }
 /* 两张并排，窄屏叠起来 */

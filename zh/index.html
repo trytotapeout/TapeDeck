@@ -51,8 +51,19 @@
           <video src="../media/tapedeck-intro.mp4" poster="../media/tapedeck-intro.jpg"
             controls playsinline preload="metadata" width="1920" height="1080"
             aria-label="TapeDeck 产品介绍视频，15 秒"></video>
+          <button class="play" type="button" hidden aria-label="播放产品介绍视频"></button>
         </figure>
-        <p>安全地浏览和发布去中心化网站。网站文件直接从链上读取并校验，打开就做安全体检，签名和交易之前先把风险讲清楚。</p>
+        <script>
+          // 没播放时只显示白底封面和中间的播放按钮，开始播放后再交给原生控件
+          (function () {
+            var fig = document.currentScript.previousElementSibling;
+            var v = fig.querySelector('video'), b = fig.querySelector('.play');
+            v.controls = false; b.hidden = false;
+            b.onclick = function () { v.play(); };
+            v.addEventListener('play', function () { b.hidden = true; v.controls = true; });
+          })();
+        </script>
+        <p>安全地浏览和发布去中心化网站，网站文件直接从链上读取并校验，打开就做安全体检，签名和交易之前先把风险讲清楚。</p>
         <div class="cta">
           <a class="btn primary" href="#download">下载 0.1.9</a>
           <a class="btn" href="#idea">产品理念</a>
