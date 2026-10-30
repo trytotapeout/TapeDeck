@@ -64,6 +64,7 @@
           <a class="btn" href="#idea">The idea</a>
         </div>
         <p class="version">macOS · Windows · Linux</p>
+        <figure class="shot"><img src="screenshots/home.jpg" alt="Discover DeWEB apps: they live on-chain and are read and verified straight from the chain" loading="lazy" width="1600" height="1000"><figcaption>Discover DeWEB apps: they live on-chain and are read and verified straight from the chain</figcaption></figure>
       </div>
     </div>
 
@@ -72,7 +73,7 @@
         <h2 id="idea-title">The idea</h2>
         <p class="lead">The scariest thing about doing anything on chain is signing the wrong thing and losing your assets. TapeDeck does two jobs: it opens on-chain sites safely, and it puts your own site on chain. On-chain apps are just sites, so when you open one in TapeDeck, every signature and transaction is checked first. A DeWEB site is really an app living in a container (a safe box), so we can also communicate through those containers.</p>
         <div class="grid">
-          <div class="card"><h3>Safety comes first</h3><p>Content is verified and checked before a site opens, and anything you are asked to sign is put into one plain sentence. Your wallet stays in your own browser extension; TapeDeck never touches your private keys.</p></div>
+          <div class="card"><h3>Safety comes first</h3><p>Content is verified and checked before a site opens, and anything you are asked to sign is put into one plain sentence. Your wallet stays in your own browser extension or on your phone; TapeDeck never touches your private keys.</p></div>
           <div class="card"><h3>Sites live on chain</h3><p>Site files are stored on the blockchain and never pass through a gateway server. There is no server to renew and no domain to expire. What you see is exactly what the publisher put there.</p></div>
           <div class="card"><h3>Publishing takes a few clicks</h3><p>Pick a folder on your computer, preview it, then publish it on chain in one click, with the cost listed up front. No site yet? Generate one with AI in TapeCode Plus.</p></div>
           <div class="card"><h3>No tech skills needed</h3><p>Checks, publishing and verification are a few fields and a few clicks. TapeDeck handles the on-chain details so you can focus on what you want to do.</p></div>
@@ -88,34 +89,51 @@
         <div class="grid">
           <div class="card"><h3>A safety check on every open</h3><p>Every site is checked as it opens: what it will ask you to sign, whether it tries to phish your seed phrase or carries coin-stealing code, and whether the contracts it uses can drain funds. The shield in the address bar shows the result: green is fine, yellow needs a look, red is high risk.</p></div>
           <div class="card"><h3>Risks explained before you sign</h3><p>Transactions are simulated on chain first, so you see how much will actually leave your wallet. Unlimited approvals, approve-all-NFTs, blind signing and address poisoning are explained in one sentence, and the default button is "Reject".</p></div>
-          <div class="card"><h3>Site permissions</h3><p>Set rules for each identity: whether wallet signatures are allowed, how much token value can be moved, and whether NFTs can be moved. The rules live in the identity's safe box, and any site request beyond them is blocked.</p></div>
-          <div class="card"><h3>Safe browsing</h3><p>Turn it on to record which sites you visited and what your wallet did. When you are done, you decide whether to save the record on chain. If anything ever goes wrong, the record proves whether you visited a site or made a transaction on a given day.</p></div>
+          <div class="card" hidden><h3>Site permissions</h3><p>Set rules for each identity: whether wallet signatures are allowed, how much token value can be moved, and whether NFTs can be moved. The rules live in the identity's safe box, and any site request beyond them is blocked.</p></div>
+          <div class="card" hidden><h3>Safe browsing</h3><p>Turn it on to record which sites you visited and what your wallet did. When you are done, you decide whether to save the record on chain. If anything ever goes wrong, the record proves whether you visited a site or made a transaction on a given day.</p></div>
           <div class="card"><h3>Open on-chain sites</h3><p>Enter a site number or a wallet address to open sites stored on BNB Chain, X Layer or Base. Content is verified before it opens, so what you see is what the publisher put there.</p></div>
           <div class="card"><h3>Following and recent</h3><p>Follow the sites you like, with a safety check before they are added. Recently visited sites are remembered too, one click away.</p></div>
         </div>
 
+        <div class="shots-2"><figure class="shot"><img src="screenshots/shield.jpg" alt="Every site gets a safety check: on-chain verification, cross-checked nodes, wallet actions it may ask for" loading="lazy" width="1600" height="1000"><figcaption>Every site gets a safety check: on-chain verification, cross-checked nodes, wallet actions it may ask for</figcaption></figure><figure class="shot"><img src="screenshots/confirm.jpg" alt="Risks spelled out before you sign: dry-run result, who you are approving, which wallet rules it breaks" loading="lazy" width="1600" height="1000"><figcaption>Risks spelled out before you sign: dry-run result, who you are approving, which wallet rules it breaks</figcaption></figure></div>
         <h3 class="group">Build and publish</h3>
         <div class="grid">
           <div class="card"><h3>Upload and publish</h3><p>Pick a folder on your computer, preview it, then publish it on chain in one click, with the cost listed up front.</p></div>
-          <div class="card"><h3>Paid apps</h3><p>Set a price on your app so only people who paid can use it.</p></div>
+          <div class="card" hidden><h3>Paid apps</h3><p>Set a price on your app so only people who paid can use it.</p></div>
+          <div class="card"><h3>TapeCode Plus</h3><p>Open tapecode.ai inside TapeDeck to generate a site with AI, then open the result in a new tab.</p></div>
+        </div>
+        <figure class="shot"><img src="screenshots/preview.jpg" alt="Preview a local folder first, then press Continue to publish" loading="lazy" width="1600" height="1000"><figcaption>Preview a local folder first, then press Continue to publish</figcaption></figure>
+
+        <h3 class="group">Site owner tools</h3>
+        <div class="grid">
           <div class="card"><h3>Gateway domain</h3><p>Activate it once and anyone can open your site in a regular browser, even without TapeDeck.</p></div>
           <div class="card"><h3>Wallet site check</h3><p>Enter a wallet address or a site to check every site it holds, sorted by risk, so problems stand out at a glance.</p></div>
-          <div class="card"><h3>TapeCode Plus</h3><p>Open tapecode.ai inside TapeDeck to generate a site with AI, then open the result in a new tab.</p></div>
+          <div class="card"><h3>File index</h3><p>List every file in a safe box by folder. Click a file name to download it; the download is checked against the fingerprint recorded on chain.</p></div>
         </div>
 
         <h3 class="group">Secure on-chain apps</h3>
         <div class="grid">
+          <div class="card"><h3>Wallet approvals</h3><p>Find every token and NFT approval a wallet has given across more than eighty chains, and revoke them one by one or all at once on the common chains.</p></div>
+          <div class="card"><h3>Wallet NFTs</h3><p>List a wallet's NFTs on X Layer, grouped by contract. Spam airdrops can be hidden or burned.</p></div>
           <div class="card"><h3>Two-way identity verification</h3><p>Link your on-chain identity and your X account to each other, so others can confirm the identity really is yours.</p></div>
           <div class="card"><h3>Send sealed files</h3><p>Files are encrypted on your computer and stored on chain; only the people you choose can open them.</p></div>
           <div class="card"><h3>Safe box lookup</h3><p>Enter an identity to see what is in its safe box, no wallet needed.</p></div>
-          <div class="card"><h3>Paid sealed delivery</h3><p>Once the buyer pays, the key to the sealed file is handed to them automatically.</p></div>
+          <div class="card" hidden><h3>Paid sealed delivery</h3><p>Once the buyer pays, the key to the sealed file is handed to them automatically.</p></div>
         </div>
 
         <h3 class="group">Identity and messages</h3>
         <div class="grid">
-          <div class="card"><h3>On-chain identity</h3><p>Own an identity on chain. In your profile you can buy blocks, open safe boxes and manage site permissions.</p></div>
+          <div class="card"><h3>On-chain identity</h3><p>Own an identity on X Layer or BNB Chain. Register one and open its safe box in your profile with a click.</p></div>
           <div class="card"><h3>Encrypted messages</h3><p>End-to-end encrypted messages between identities; on-chain links in a message open right in TapeDeck.</p></div>
         </div>
+
+        <h3 class="group">Wallets</h3>
+        <div class="grid">
+          <div class="card"><h3>Connect a phone wallet</h3><p>Besides a browser extension, you can scan a QR code with your phone wallet. Signatures and transactions are confirmed on the phone, and the private keys stay there.</p></div>
+          <div class="card"><h3>Wallet list</h3><p>Every wallet you have used is listed in one place. Give each a name and switch between them from the top-right corner.</p></div>
+          <div class="card"><h3>Activity log</h3><p>Every signature, transaction and site connection is logged on this computer, filterable by wallet and type. Nothing is uploaded.</p></div>
+        </div>
+        <figure class="shot"><img src="screenshots/approvals.jpg" alt="Check wallet approvals across many chains and revoke on common ones" loading="lazy" width="1600" height="1000"><figcaption>Check wallet approvals across many chains and revoke on common ones</figcaption></figure>
       </div>
     </section>
 

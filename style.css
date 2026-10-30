@@ -115,3 +115,15 @@ kbd { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.85em; 
   .manual { grid-template-columns: 1fr; gap: 16px; }
   .manual .toc { position: static; display: block; }
 }
+
+/* 产品截图：整个窗口带标题栏，圆角细边框 */
+.shot { margin: 24px 0 8px; }
+.shot img {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--line); border-radius: 10px;
+}
+.shot figcaption { color: var(--muted); font-size: 14px; margin-top: 8px; }
+.hero .shot { max-width: 960px; margin: 40px auto 0; }
+/* 两张并排，窄屏叠起来 */
+.shots-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 860px) { .shots-2 { grid-template-columns: 1fr; } }
