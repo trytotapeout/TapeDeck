@@ -118,10 +118,15 @@ kbd { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.85em; 
 
 /* 产品截图：整个窗口带标题栏，圆角细边框 */
 .shot { margin: 24px 0 8px; }
-.shot img {
+.shot img, .shot video {
   display: block; width: 100%; height: auto;
   border: 1px solid var(--line); border-radius: 10px;
 }
+.shot video { background: #141416; aspect-ratio: 16 / 9; }
+/* 介绍区放视频时：标题贴近顶部，视频紧跟标题 */
+.hero.with-video { padding-top: 28px; }
+.hero.with-video h1 { margin: 0 0 4px; }
+.hero .shot.top { margin: 16px auto 32px; }
 .shot figcaption { color: var(--muted); font-size: 14px; margin-top: 8px; }
 .hero .shot { max-width: 960px; margin: 40px auto 0; }
 /* 两张并排，窄屏叠起来 */
